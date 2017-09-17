@@ -1,5 +1,5 @@
 import React from 'react'
-import Triangle from './Triangle'
+import Stage from './Stage'
 import DPI from 'canvas-dpi-scaler'
 
 
@@ -23,20 +23,11 @@ class Canvas extends React.Component {
 			canvas.width = vw
 			canvas.height = vh
 		}
-		const diagonalTop = ()=>{
-			ctx.beginPath()
-			ctx.moveTo(0, 0)
-			ctx.lineTo(vw, vh)
-			ctx.strokeStyle = '#34cadf'
-			ctx.stroke()
-		}
 
 		requestAnimationFrame(function gameLoop() {
 			ctx.clearRect(0, 0, vw, vh)
 			// Start drawing
-			  diagonalTop()
-			  Triangle(ctx, vw, vh)
-
+			  Stage(ctx, vw, vh, audio, mouse)
 			// End Drawing
 			requestAnimationFrame(gameLoop)
 		})
